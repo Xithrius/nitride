@@ -1,22 +1,32 @@
 [package]
-name = "rust-binary-project-template"
+name = "nitride"
 version = "0.1.0"
+authors = ["Xithrius <xithrius@gmail.com>"]
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+rust-version = "1.61.0"
+description = "Compounding package managers together."
+documentation = "https://github.com/Xithrius/nitride"
+homepage = "https://github.com/Xithrius/nitride"
+repository = "https://github.com/Xithrius/nitride"
+license = "MIT OR Apache-2.0"
+keywords = ["cli"]
+categories = ["command-line-utilities"]
 
 [dependencies]
-serde = { version = "1.0.136", features = [ "derive" ] }
-toml = "0.5.8"
-color-eyre = "0.6.1"
-
-[profile.dev.package.backtrace]
-opt-level = 3
+clap = { version = "4.0.7", features = [ "derive", "cargo" ] }
 
 [[bin]]
 bench = false
 path = "src/main.rs"
-name = "rust-binary-project-template"
+name = "nitride"
+
+[profile.dev]
+lto = "off"
+
+[profile.dev.package.backtrace]
+opt-level = 3
 
 [profile.release]
 lto = "thin"
+debug = 1
+incremental = true

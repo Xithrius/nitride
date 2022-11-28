@@ -13,7 +13,7 @@ keywords = ["cli"]
 categories = ["command-line-utilities"]
 
 [dependencies]
-clap = { version = "4.0.7", features = [ "derive", "cargo" ] }
+clap = { version = "4.0.27", features = [ "derive", "cargo" ] }
 
 [[bin]]
 bench = false

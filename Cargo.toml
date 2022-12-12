@@ -23,9 +23,6 @@ name = "nitride"
 [profile.dev]
 lto = "off"
 
-[profile.dev.package.backtrace]
-opt-level = 3
-
 [profile.release]
 lto = "thin"
 debug = 1

@@ -28,7 +28,7 @@ enum PackageManager {
 }
 
 fn acquire_dir_files() -> Option<Vec<String>> {
-    if let Ok(path) = env::current_dir() {
+    env::current_dir().map_or(None, |path| {
         Some(
             fs::read_dir(path)
                 .unwrap()
@@ -36,9 +36,7 @@ fn acquire_dir_files() -> Option<Vec<String>> {
                 .map(|e| e.unwrap().into_os_string().into_string().unwrap())
                 .collect::<Vec<String>>(),
         )
-    } else {
-        None
-    }
+    })
 }
 
 fn main() {
